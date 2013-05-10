@@ -1,7 +1,8 @@
 class ShowtimesController < ApplicationController
 
   def index
-    @showtimes = Showtime.all
+    ## Returns showtimes sorted by screen time (which is a string NOT a datetime so it can't tell AM from PM)
+    @showtimes = Showtime.order('screen_time asc')
   end
 
   def show
@@ -17,7 +18,7 @@ class ShowtimesController < ApplicationController
     @showtime.movie_id = params[:movie_id]
     @showtime.theater_id = params[:theater_id]
     @showtime.screen_time = params[:screen_time]
-    
+
     if @showtime.save
       redirect_to "/showtimes"
     else
@@ -34,7 +35,7 @@ class ShowtimesController < ApplicationController
     @showtime.movie_id = params[:movie_id]
     @showtime.theater_id = params[:theater_id]
     @showtime.screen_time = params[:screen_time]
-    
+
     if @showtime.save
       redirect_to "/showtimes"
     else

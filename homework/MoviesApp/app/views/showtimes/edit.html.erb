@@ -4,12 +4,12 @@
 
   <div>
     <%= label_tag :movie_id %><br />
-    <%= text_field_tag :movie_id, @showtime.movie_id %>
+    <%= select_tag :movie_id, options_from_collection_for_select(Movie.order('title asc'), :id,  :title, @showtime.movie_id) %>
   </div>
 
   <div>
     <%= label_tag :theater_id %><br />
-    <%= text_field_tag :theater_id, @showtime.theater_id %>
+    <%= select_tag :theater_id, options_from_collection_for_select(Theater.order('name asc'), :id, :name, @showtime.theater_id) %>
   </div>
 
   <div>
@@ -17,7 +17,7 @@
     <%= text_field_tag :screen_time, @showtime.screen_time %>
   </div>
 
-  
+
   <div>
     <%= submit_tag "Update Showtime" %>
   </div>
