@@ -1,0 +1,25 @@
+<h1>Editing Showtime #<%= @showtime.id %></h1>
+
+<%= form_tag(showtime_url(@showtime), method: 'put') do %>
+
+  <div>
+    <%= label_tag :movie_id %><br />
+    <%= text_field_tag :movie_id, @showtime.movie_id %>
+  </div>
+
+  <div>
+    <%= label_tag :theater_id %><br />
+    <%= text_field_tag :theater_id, @showtime.theater_id %>
+  </div>
+
+  <div>
+    <%= label_tag :screen_time %><br />
+    <%= text_field_tag :screen_time, @showtime.screen_time %>
+  </div>
+
+  
+  <div>
+    <%= submit_tag "Update Showtime" %>
+  </div>
+
+<% end %>
