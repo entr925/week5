@@ -1,0 +1,32 @@
+<h1>Showtimes</h1>
+
+<p><%= link_to 'Add a New Showtime', "/showtimes/new" %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Movie</th>
+      <th>Theater</th>
+      <th>Screen time</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @showtimes.each do |showtime| %>
+    <tr>
+        <td><%= showtime.movie.title %></td>
+        <td><%= showtime.theater.name %></td>
+        <td><%= showtime.screen_time %></td>
+
+      <td><%= link_to 'Show', "/showtimes/#{showtime.id}" %></td>
+      <td><%= link_to 'Edit', "/showtimes/#{showtime.id}/edit" %></td>
+      <td><%= link_to 'Destroy', "/showtimes/#{showtime.id}", method: 'delete', data: { confirm: "Do you really want to delete this showtime?" } %></td>
+
+    </tr>
+  <% end %>
+  </body>
+</table>
+

@@ -1,20 +1,31 @@
 MoviesApp::Application.routes.draw do
 
-  # Routes for the Theater resource:
+  # Routes for the Showtime resource:
   # CREATE
-  get '/theaters/new', controller: 'theaters', action: 'new'
+  get '/showtimes/new', controller: 'showtimes', action: 'new', as: 'new_showtime'
+  post '/showtimes', controller: 'showtimes', action: 'create'
 
   # READ
-  get '/theaters', controller: 'theaters', action: 'index'
-  get '/theaters/:id', controller: 'theaters', action: 'show'
+  get '/showtimes', controller: 'showtimes', action: 'index', as: 'showtimes'
+  get '/showtimes/:id', controller: 'showtimes', action: 'show', as: 'showtime'
 
   # UPDATE
-  get '/theaters/:id/edit', controller: 'theaters', action: 'edit'
-  put '/theaters/:id', controller: 'theaters', action: 'update'
+  get '/showtimes/:id/edit', controller: 'showtimes', action: 'edit', as: 'edit_showtime'
+  put '/showtimes/:id', controller: 'showtimes', action: 'update'
 
   # DELETE
-  delete '/theaters/:id', controller: 'theaters', action: 'destroy'
+  delete '/showtimes/:id', controller: 'showtimes', action: 'destroy'
   #------------------------------
+
+  # Routes for the Theater resource:
+  get '/', controller: 'theaters', action: 'index'
+  get '/theaters', controller: 'theaters', action: 'index'
+  get '/theaters/new', controller: 'theaters', action: 'new'
+  post "/theaters", controller: 'theaters', action: 'create'
+  get '/theaters/:id', controller: 'theaters', action: 'show'
+  get '/theaters/:id/edit', controller: 'theaters', action: 'edit'
+  put '/theaters/:id', controller: 'theaters', action: 'update'
+  delete '/theaters/:id', controller: 'theaters', action: 'destroy'
 
 # Routes for the Movie resource:
 
